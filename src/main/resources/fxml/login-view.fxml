@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mercedes.partsmanager.controller.LoginController"
+      alignment="CENTER"
+      spacing="0"
+      prefWidth="600"
+      prefHeight="400"
+      styleClass="login-root">
+
+    <!-- Conteneur principal de la carte de login -->
+    <VBox styleClass="login-container" alignment="TOP_CENTER" spacing="0">
+
+        <!-- Section titre -->
+        <VBox styleClass="title-section">
+            <Label text="Mercedes Parts Manager" styleClass="title-label"/>
+            <Label text="Accédez à votre espace de gestion des pièces"
+                   styleClass="subtitle-label"
+                   maxWidth="300"/>
+        </VBox>
+
+        <!-- Section formulaire -->
+        <VBox styleClass="form-section" alignment="CENTER">
+
+            <!-- Champ nom d'utilisateur -->
+            <VBox styleClass="field-container">
+                <Label text="Email" />
+                <TextField fx:id="emailField" promptText="admin@mercedes.com" />
+            </VBox>
+
+            <!-- Champ mot de passe -->
+            <VBox styleClass="field-container">
+                <Label text="Mot de passe" styleClass="field-label"/>
+                <PasswordField fx:id="passwordField"
+                               promptText="Entrez votre mot de passe"
+                               maxWidth="300"/>
+            </VBox>
+
+            <!-- Message d'erreur -->
+            <Label fx:id="errorLabel"
+                   styleClass="error-label"
+                   maxWidth="300"
+                   visible="false"/>
+
+            <!-- Section boutons -->
+            <VBox styleClass="buttons-section" alignment="CENTER">
+                <Button text="Se connecter"
+                        onAction="#handleLogin"
+                        maxWidth="300"
+                        styleClass="primary-btn"/>
+
+                <Separator prefWidth="300" style="-fx-padding: 16 0 16 0;"/>
+
+                <Button text="Créer un compte"
+                        onAction="#goToSignup"
+                        maxWidth="300"
+                        styleClass="secondary-btn"/>
+            </VBox>
+
+            <!-- Section informations -->
+            <VBox styleClass="info-section" alignment="CENTER">
+                <Label text="Application de gestion des pièces Mercedes"
+                       style="-fx-text-fill: #6c757d; -fx-font-size: 12px;"/>
+                <Label text="Version 1.0.0 © 2024"
+                       style="-fx-text-fill: #adb5bd; -fx-font-size: 11px;"/>
+            </VBox>
+
+        </VBox>
+
+    </VBox>
+
+</VBox>

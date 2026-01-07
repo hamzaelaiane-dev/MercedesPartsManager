@@ -1,0 +1,202 @@
+/* =========== BOUTONS =========== */
+.primary-button {
+    -fx-background-color: linear-gradient(to right, #2563eb, #7c3aed);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-padding: 12 24;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: linear-gradient(to right, #1d4ed8, #6d28d9);
+    -fx-effect: dropshadow(gaussian, rgba(37, 99, 235, 0.5), 15, 0, 0, 3);
+}
+
+.secondary-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-secondary;
+    -fx-border-color: -border-color;
+    -fx-border-width: 1;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-padding: 12 24;
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-border-color: -primary-color;
+    -fx-text-fill: -primary-light;
+}
+
+.warning-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -warning-color;
+    -fx-border-color: -warning-color;
+    -fx-border-width: 1;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-padding: 12 24;
+    -fx-cursor: hand;
+}
+
+.warning-button:hover {
+    -fx-background-color: rgba(245, 158, 11, 0.1);
+}
+
+.danger-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -danger-color;
+    -fx-border-color: -danger-color;
+    -fx-border-width: 1;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-padding: 12 24;
+    -fx-cursor: hand;
+}
+
+.danger-button:hover {
+    -fx-background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* =========== FORMULAIRES =========== */
+.input-label {
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.modern-input {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-background-radius: 8;
+    -fx-border-color: -border-color;
+    -fx-border-radius: 8;
+    -fx-text-fill: -text-primary;
+    -fx-padding: 12 15;
+    -fx-prompt-text-fill: -text-muted;
+}
+
+.modern-input:focused {
+    -fx-border-color: -primary-color;
+    -fx-effect: dropshadow(gaussian, rgba(37, 99, 235, 0.3), 10, 0, 0, 0);
+}
+
+/* =========== TABLEAUX =========== */
+.modern-table {
+    -fx-background-color: transparent;
+    -fx-border-color: -border-color;
+    -fx-border-radius: 8;
+}
+
+.modern-table .column-header {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-border-color: -border-color;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 12 15;
+    -fx-text-fill: -text-secondary;
+    -fx-font-weight: bold;
+}
+
+.modern-table .table-row-cell {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: -text-primary;
+}
+
+.modern-table .table-row-cell:odd {
+    -fx-background-color: rgba(255, 255, 255, 0.02);
+}
+
+.modern-table .table-row-cell:selected {
+    -fx-background-color: rgba(37, 99, 235, 0.2);
+    -fx-text-fill: -primary-light;
+}
+
+.modern-table .table-row-cell:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* =========== TEXTES =========== */
+.error-text {
+    -fx-text-fill: -danger-color;
+    -fx-font-size: 13px;
+}
+
+.success-text {
+    -fx-text-fill: -accent-color;
+    -fx-font-size: 13px;
+}
+
+/* =========== TOGGLE SWITCH =========== */
+.toggle-switch {
+    -fx-background-color: #374151;
+    -fx-background-radius: 15;
+    -fx-pref-width: 50;
+    -fx-pref-height: 25;
+}
+
+.toggle-switch:selected {
+    -fx-background-color: -primary-color;
+}
+
+.toggle-switch .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 50%;
+    -fx-pref-width: 21;
+    -fx-pref-height: 21;
+}
+
+/* =========== SCROLLBAR =========== */
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar:vertical .track {
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+    -fx-background-radius: 0;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #4b5563;
+    -fx-background-radius: 5;
+}
+
+.scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #6b7280;
+}
+
+.scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+/* Padding pour les composants */
+.logo-container {
+    -fx-padding: 0 0 40 0;
+}
+
+.user-profile {
+    -fx-padding: 20;
+    -fx-border-color: -border-color;
+    -fx-border-width: 1 0 0 0;
+}
+
+.header {
+    -fx-padding: 15 25;
+}
+
+.content-area {
+    -fx-padding: 25;
+}
+
+.card {
+    -fx-padding: 25;
+}
+
+/* Padding pour les boutons du menu */
+.menu-item {
+    -fx-padding: 12 20;
+}

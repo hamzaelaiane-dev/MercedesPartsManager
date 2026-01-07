@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mercedes.partsmanager.controller.SignupController"
+      alignment="CENTER"
+      spacing="20"
+      prefWidth="800"
+      prefHeight="700"
+      styleClass="signup-root">
+
+    <!-- Logo -->
+    <VBox alignment="CENTER" spacing="10" style="-fx-padding: 0 0 20 0;">
+        <Label text="✧" style="-fx-font-size: 48px; -fx-text-fill: #00a1e0; -fx-opacity: 0.8;"/>
+    </VBox>
+
+    <!-- Conteneur principal -->
+    <VBox alignment="TOP_CENTER" spacing="25" style="-fx-padding: 40 45;">
+
+        <!-- Titre principal -->
+        <Label text="CRÉER UN COMPTE"
+               styleClass="signup-title"
+               maxWidth="360"/>
+
+        <!-- Formulaire -->
+        <VBox alignment="CENTER" spacing="22">
+
+            <!-- Nom complet -->
+            <TextField fx:id="fullNameField"
+                       promptText="Nom complet"
+                       maxWidth="360"
+                       styleClass="signup-field"/>
+
+            <!-- Nom d'utilisateur -->
+            <TextField fx:id="usernameField"
+                       promptText="Nom d'utilisateur"
+                       maxWidth="360"
+                       styleClass="signup-field"/>
+
+            <!-- Mot de passe -->
+            <PasswordField fx:id="passwordField"
+                           promptText="Mot de passe"
+                           maxWidth="360"
+                           styleClass="signup-field"/>
+
+            <!-- Confirmation mot de passe -->
+            <PasswordField fx:id="confirmPasswordField"
+                           promptText="Confirmer le mot de passe"
+                           maxWidth="360"
+                           styleClass="signup-field"/>
+
+            <!-- Rôle -->
+            <ChoiceBox fx:id="roleChoice"
+                       maxWidth="360"
+                       styleClass="signup-choice"/>
+
+            <!-- Message erreur -->
+            <Label fx:id="errorLabel"
+                   styleClass="signup-error"
+                   visible="false"/>
+
+            <!-- Boutons -->
+            <VBox alignment="CENTER" spacing="18" style="-fx-padding: 15 0 0 0;">
+                <Button text="S'INSCRIRE"
+                        onAction="#handleSignup"
+                        maxWidth="360"
+                        styleClass="signup-btn-primary"/>
+
+                <Separator prefWidth="360" style="-fx-padding: 20 0;"/>
+
+                <Button text="← RETOUR AU LOGIN"
+                        onAction="#goToLogin"
+                        maxWidth="360"
+                        styleClass="signup-btn-secondary"/>
+            </VBox>
+
+            <!-- Footer -->
+            <VBox styleClass="signup-footer" alignment="CENTER">
+                <Label text="Vos informations sont sécurisées et cryptées"/>
+                <Label text="Mercedes Parts Manager - Gestion sécurisée"/>
+            </VBox>
+
+        </VBox>
+
+    </VBox>
+
+</VBox>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.mercedes.partsmanager.controller.AdminDashboardController">
+
+    <!-- TOP BAR -->
+    <top>
+        <HBox spacing="10" style="-fx-background-color:#f3f3f3;">
+            <padding>
+                <Insets top="15" right="15" bottom="15" left="15"/>
+            </padding>
+
+            <Label text="Admin Dashboard" style="-fx-font-size:18px; -fx-font-weight:bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Logout" onAction="#handleLogout"/>
+        </HBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <TabPane>
+
+            <!-- PRODUITS -->
+            <Tab text="Produits" closable="false">
+                <BorderPane>
+                    <padding>
+                        <Insets top="15" right="15" bottom="15" left="15"/>
+                    </padding>
+
+                    <center>
+                        <TableView fx:id="productsTable" prefHeight="380">
+                            <columns>
+                                <TableColumn fx:id="colPId" text="ID" prefWidth="60"/>
+                                <TableColumn fx:id="colPName" text="Nom" prefWidth="180"/>
+                                <TableColumn fx:id="colPPrice" text="Prix" prefWidth="100"/>
+                                <TableColumn fx:id="colPStock" text="Stock" prefWidth="80"/>
+                                <TableColumn fx:id="colPCategory" text="Catégorie" prefWidth="180"/>
+                            </columns>
+                        </TableView>
+                    </center>
+
+                    <bottom>
+                        <VBox spacing="10" style="-fx-background-color:#fafafa;">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10"/>
+                            </padding>
+
+                            <Label text="Ajouter / Modifier Produit" style="-fx-font-weight:bold;"/>
+
+                            <GridPane hgap="10" vgap="10">
+                                <columnConstraints>
+                                    <ColumnConstraints percentWidth="20"/>
+                                    <ColumnConstraints percentWidth="80"/>
+                                </columnConstraints>
+
+                                <Label text="Nom:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                <TextField fx:id="pNameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                                <Label text="Description:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                <TextArea fx:id="pDescField" prefRowCount="2" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                                <Label text="Prix:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                <TextField fx:id="pPriceField" promptText="ex: 120.50" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                                <Label text="Stock:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                                <TextField fx:id="pStockField" promptText="ex: 10" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                                <Label text="Catégorie:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                                <ComboBox fx:id="pCategoryCombo" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+                                <!-- NEW: IMAGE -->
+                                <Label text="Image:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+
+                                <VBox spacing="6" GridPane.rowIndex="5" GridPane.columnIndex="1">
+                                    <HBox spacing="10">
+                                        <Button text="Choisir Image" onAction="#handleChooseProductImage"/>
+                                        <Label fx:id="pImageLabel" text="Aucune image" />
+                                    </HBox>
+
+                                    <!-- Preview (optionnel mais recommandé) -->
+                                    <ImageView fx:id="pImagePreview"
+                                               fitWidth="160" fitHeight="110"
+                                               preserveRatio="true"
+                                               smooth="true" cache="true"/>
+                                </VBox>
+
+                            </GridPane>
+
+                            <HBox spacing="10">
+                                <Button text="Ajouter" onAction="#handleAddProduct"/>
+                                <Button text="Modifier (sélection)" onAction="#handleUpdateProduct"/>
+                                <Button text="Supprimer (sélection)" onAction="#handleDeleteProduct"/>
+                                <Label fx:id="pMsgLabel" style="-fx-text-fill:red;"/>
+                            </HBox>
+                        </VBox>
+                    </bottom>
+                </BorderPane>
+            </Tab>
+
+            <!-- CATEGORIES -->
+            <Tab text="Catégories" closable="false">
+                <VBox spacing="12">
+                    <padding>
+                        <Insets top="15" right="15" bottom="15" left="15"/>
+                    </padding>
+
+                    <TableView fx:id="categoriesTable" prefHeight="300">
+                        <columns>
+                            <TableColumn fx:id="colCId" text="ID" prefWidth="80"/>
+                            <TableColumn fx:id="colCName" text="Nom" prefWidth="300"/>
+                        </columns>
+                    </TableView>
+
+                    <HBox spacing="10">
+                        <TextField fx:id="cNameField" promptText="Nom de catégorie" prefWidth="250"/>
+                        <Button text="Ajouter" onAction="#handleAddCategory"/>
+                        <Button text="Supprimer (sélection)" onAction="#handleDeleteCategory"/>
+                        <Label fx:id="cMsgLabel" style="-fx-text-fill:red;"/>
+                    </HBox>
+                </VBox>
+            </Tab>
+
+            <!-- USERS -->
+            <Tab text="Users" closable="false">
+                <VBox spacing="12">
+                    <padding>
+                        <Insets top="15" right="15" bottom="15" left="15"/>
+                    </padding>
+
+                    <TableView fx:id="usersTable" prefHeight="380">
+                        <columns>
+                            <TableColumn fx:id="colUId" text="ID" prefWidth="60"/>
+                            <TableColumn fx:id="colUFullName" text="Nom complet" prefWidth="220"/>
+                            <TableColumn fx:id="colUUsername" text="Username" prefWidth="160"/>
+                            <TableColumn fx:id="colURole" text="Role" prefWidth="100"/>
+                            <TableColumn fx:id="colUEnabled" text="Enabled" prefWidth="90"/>
+                        </columns>
+                    </TableView>
+
+                    <HBox spacing="10">
+                        <Button text="Actualiser" onAction="#refreshAll"/>
+                        <Button text="Activer/Désactiver (sélection)" onAction="#handleToggleUserEnabled"/>
+                        <Label fx:id="uMsgLabel" style="-fx-text-fill:red;"/>
+                    </HBox>
+                </VBox>
+            </Tab>
+
+        </TabPane>
+    </center>
+
+</BorderPane>
